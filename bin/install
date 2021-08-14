@@ -6,7 +6,7 @@ ASDF_INSTALL_TYPE=${ASDF_INSTALL_TYPE:-version  }
 [ -n "$ASDF_INSTALL_VERSION" ] || (>&2 echo 'Missing ASDF_INSTALL_VERSION' && exit 1)
 [ -n "$ASDF_INSTALL_PATH" ] || (>&2 echo 'Missing ASDF_INSTALL_PATH' && exit 1)
 
-readonly TMP_DIR="$(mktemp -d -t "asdf_protoc_gen_web_grpc_XXXX")"
+readonly TMP_DIR="$(mktemp -d -t "asdf_protoc_gen_grpc_web_XXXX")"
 trap 'rm -rf "${TMP_DIR?}"' EXIT
 
 get_platform() {
@@ -29,12 +29,12 @@ install_protoc_gen_grpc_web() {
   mkdir -p "${install_path}"
 
   local base_url="https://github.com/grpc/grpc-web/releases/download"
-  local url="${base_url}/${version}/protoc-gen-rpc-web-${version}-$(get_platform)-$(uname -m)"
-  local download_path="${TMP_DIR}/protoc-gen-rpc-web"
+  local url="${base_url}/${version}/protoc-gen-grpc-web-${version}-$(get_platform)-$(uname -m)"
+  local download_path="${TMP_DIR}/protoc-gen-grpc-web"
   echo "Downloading ${url}"
   curl -fsSL "${url}" -o "${download_path}"
 
-  mv "${download_path}" "${install_path}/protoc-gen-rpc-web"
+  mv "${download_path}" "${install_path}/protoc-gen-grpc-web"
 }
 
 install_protoc_gen_grpc_web $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
