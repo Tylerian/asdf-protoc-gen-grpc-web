@@ -8,7 +8,7 @@ compiler plugin for [asdf](https://github.com/asdf-vm/asdf) version manager.
 ## Install
 
 ```
-asdf plugin-add protoc https://github.com/tylerian/asdf-protoc-gen-grpc-web.git
+asdf plugin-add protoc-gen-grpc-web https://github.com/tylerian/asdf-protoc-gen-grpc-web.git
 ```
 
 ## Use
