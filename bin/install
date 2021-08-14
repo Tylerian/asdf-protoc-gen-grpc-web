@@ -33,7 +33,7 @@ install_protoc_gen_grpc_web() {
   local download_path="${TMP_DIR}/protoc-gen-grpc-web"
   echo "Downloading ${url}"
   curl -fsSL "${url}" -o "${download_path}"
-
+  chmod +x "${download_path}"
   mv "${download_path}" "${install_path}/protoc-gen-grpc-web"
 }
 
